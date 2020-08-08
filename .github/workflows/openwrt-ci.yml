@@ -9,13 +9,16 @@ name: OpenWrt-CI
 
 on:
   workflow_dispatch:
-
+    inputs:
+      name:
+        description: 'recheck'
+        required: true
+        default: 'true'
+        
 jobs:
 
   build_openwrt:
-
     name: Build OpenWrt firmware
-
     runs-on: ubuntu-latest
 
     if: github.event.repository.owner.id == github.event.sender.id
